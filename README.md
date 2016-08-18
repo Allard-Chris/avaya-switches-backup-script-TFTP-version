@@ -33,6 +33,8 @@ You need to have a file where they are all switches's IP. He must to be in the s
 The script verifie that the IP address is valid.
 There is no problem if the file have few texts BUT a line that contains an IP address must only contain it.
 
+Log file
+-------------
 The script generate a file named that contains the results of all tests for all the hots.
 Example of result file :
 
