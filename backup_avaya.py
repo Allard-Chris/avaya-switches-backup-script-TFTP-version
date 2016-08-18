@@ -5,6 +5,7 @@
 #        V1.0                                   #
 #Auteur : Allard.C                              #
 #Date : 18/08/2016                              #
+#https://github.com/Allard-Chris                #
 #################################################
 
 # Import library
