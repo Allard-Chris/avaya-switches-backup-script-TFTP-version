@@ -21,7 +21,8 @@ You need to set few variables :
 Input file for switches list
 -------------
 
-You need to have a file where they are all switches's IP. He must to be in the same directory with the script. Example of input file.
+You need to have a file where they are all switches's IP. He must to be in the same directory with the script. Example of input file :
+
 	Switch1 :
 	192.168.1.20
 
