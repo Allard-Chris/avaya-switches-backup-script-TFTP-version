@@ -5,8 +5,6 @@ This script connect to a list of Avaya switches for initiating a backup command 
 It use Telnet protocol and the login should be the same all on switches that the script will go.
 It require an TFTP server where the backups will be saved
 
-----------
-
 How to use it
 -------------
 
