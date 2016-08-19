@@ -41,6 +41,10 @@ telnet_port = 23 # Default telnet port
 user = raw_input("Enter your remote account: ") # Variable for user account
 password = getpass.getpass() # Variable for password account
 
+# Other Variable
+successful = 0
+failure = 0
+
 # Create an output file for the results
 log = open(log_file, "w") # Open or create the file in writing mode
 
@@ -85,12 +89,17 @@ for ip_address in hosts:
 			# Write for log file
 			log.write(time.strftime('%d/%m/%y %H:%M:%S',time.localtime()) + " " + ip_address + " " + host_name + " : Successful" + "\n")
 			print time.strftime('%d/%m/%y %H:%M:%S',time.localtime()) + " Successful" # For user information
+			successful += 1
 
 		except socket.error, error:
 			log.write(time.strftime('%d/%m/%y %H:%M:%S',time.localtime()) + " " + ip_address + " Failure - " + str(error) + "\n")
 			print time.strftime('%d/%m/%y %H:%M:%S',time.localtime()) + " Failure on : " + ip_address # For user information
+			failure += 1
 
 # End of script
 print "End of script"
+log.write("\n")
 log.write(time.strftime('%d/%m/%y %H:%M:%S',time.localtime()) + " : End of script" + "\n")
+log.write("Number of Failures : " + failure + "\n")
+log.write("Number of Successful : " + successful + "\n")
 sys.exit(0)
