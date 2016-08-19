@@ -82,7 +82,7 @@ for ip_address in hosts:
 					host_name = host_name[(len(host_name) - iteration):(len(host_name) - 1)]
 					break
 
-			telnet.write("copy running-config tftp address " + tftp_server + " filename " + host_name + "\n") # Switch command for saving configuration in tftp
+			telnet.write("copy running-config tftp address " + tftp_server + " filename " + ip_address + " - " + host_name + "\n") # Switch command for saving configuration in tftp
 			telnet.read_until("ACG configuration generation completed",timeout) # Backup successful indication
 			telnet.close() # End of telnet session on the host
 
