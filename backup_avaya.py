@@ -1,12 +1,17 @@
 #!/usr/bin/python
-#################################################
-#                                               #
-#  SCRIPT BACKUP RUNNING-CONFIG AVAYA SWITCHES  #
-#        V1.0                                   #
-#Auteur : Allard.C                              #
-#Date : 18/08/2016                              #
-#https://github.com/Allard-Chris                #
-#################################################
+#--------------------------------------------------------------------------------------------------
+#
+#     Nom : backup_avaya.py
+#  Auteur : Allard Chris
+#    Date : 18/08/2016
+# Version : 1.0
+#  Github : https://github.com/Allard-Chris/avaya-switches-backup-script-TFTP-version-.git
+#
+# This script connect to a list of Avaya switches for initiating a backup command to a TFTP server.
+# It use Telnet protocol and the login should be the same all on switches that the script will go.
+# It require an TFTP server where the backups will be saved.
+#
+#--------------------------------------------------------------------------------------------------
 
 # Import library
 import getpass
