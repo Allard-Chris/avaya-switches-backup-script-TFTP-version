@@ -39,14 +39,14 @@ def is_valid_ip(ip):
 signal.signal(signal.SIGINT, close_program)
 
 # VARIABLE SET
-tftp_server = "192.168.1.20"  # tftp server where will be sent backups
+tftp_server = "192.168.1.42"  # tftp server where will be sent backups
 timeout = 120  # Waiting time before considering that there is a timeout (in seconds)
 log_file = "log.txt"  # Name of output file
 hosts_file = "hosts.txt"  # Name of input file where they are IP address of switches
 telnet_port = 23  # Default telnet port
 
 # Account Parameters
-user = input("Enter your remote account: ")  # Variable for user account
+user = raw_input("Enter your remote account: ")  # Variable for user account
 password = getpass.getpass()  # Variable for password account
 
 # Other Variable
@@ -61,8 +61,8 @@ try:
     input_file = open(hosts_file, "r")  # Open file in read mode
     hosts = input_file.readlines()
     input_file.close()
-except IOError:
-    print("Error opening file")
+except IOError as e:
+    print("Error opening file", e)
     sys.exit(0)
 
 # Loop on all lines in input file
@@ -106,7 +106,7 @@ for ip_address in hosts:
                         (len(host_name) - iteration) : (len(host_name) - 1)
                     ]
                     break
-
+            print(ip_address + "-" + host_name + "_" + datetime.now().strftime("%d/%m/%Y"))
             telnet.write(
                 "copy running-config tftp address "
                 + tftp_server
@@ -127,7 +127,7 @@ for ip_address in hosts:
 
             # Write for log file
             log.write(
-                time.strftime("%d/%m/%y %H:%M:%S", time.localtime())
+                time.strftime("%d%m%y_%H%M%S", time.localtime())
                 + " "
                 + ip_address
                 + " "
